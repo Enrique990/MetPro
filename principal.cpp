@@ -4,26 +4,31 @@ using namespace std;
 
 int main()
 {
-    int cant, edad, i = 0;
-    cout << "cuantad edades desea ingresar: ";
-    cin >> cant;
-    while (i < cant)
+    int cant, edad, i = 0, opcion = 0;
+    do
     {
-        cout << "Dime edad: ";
-        cin >> edad;
-        if (hayEspacio())
-            agregarEdad(edad);
-        else
+        opcion = menu();
+        switch (opcion)
         {
-            cout << "no hay espacio sificiente para almacenar mas edades";
+        case 1:
+            cout << "Ingrese la edad: ";
+            cin >> edad;
+            agregarEdad(edad);
             system("pause");
             break;
-        };
-        agregarEdad(edad);
-        i++;
-    }
-    system("cls");
-    cout << "Imprimiendo edades:\n"; 
-    mostrarEdades();
+        case 2:
+            mostrarEdades();
+            system("pause");
+            break;
+        case 3:
+            mostrarEdadesMayor();
+            system("pause");
+            break;
+        default:
+            cout << "opcion invalida...\n";
+            system("pause");
+            break;
+        } 
+    } while (opcion !=4);
     return 0;
 }
